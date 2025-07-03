@@ -1,6 +1,6 @@
-# Justiz Auktion Scraper
+# Auction Scraper
 
-This project is designed for automatic data collection from [justiz-auktion.de](https://www.justiz-auktion.de/) and saving auction lot information to a PostgreSQL database.
+This project is designed for automatic data collection from an auction website and saving lot information to a PostgreSQL database.
 
 ## Features
 
@@ -15,8 +15,8 @@ This project is designed for automatic data collection from [justiz-auktion.de](
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/justiz-auktion.git
-cd justiz-auktion
+git clone https://github.com/StereoSilence/goods-from-auctions.git goods-from-auctions
+cd goods-from-auctions
 ```
 
 ### 2. Start PostgreSQL and pgAdmin using Docker
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ### 4. Set up Selenium
 
 - Download [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/) for your Chrome version and place it in the project folder.
-- Specify the path to `chromedriver.exe` in `src/scraper/auction_scraper.py` in the `get_html_selenium` function.
+- Specify the path to `chromedriver.exe` in `src/scraper/auction_scraper.py` in the `get_html_selenium` function or set it via the `CHROMEDRIVER_PATH` environment variable.
 
 ### 5. Run the data collection
 

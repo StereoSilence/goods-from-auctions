@@ -1,5 +1,4 @@
-# Скреппинг аукционного сайта justiz-auktion.de
-# Основные зависимости
+# The main dependencies
 requests
 beautifulsoup4
 sqlalchemy

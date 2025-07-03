@@ -1,5 +1,5 @@
 # src/main.py
-# Точка входа для запуска скраппинга и обновления базы
+# Entry point for running scraping and updating the database
 
 from scraper.auction_scraper import AuctionScraper
 from db.session import SessionLocal
@@ -10,12 +10,12 @@ def main():
     session = SessionLocal()
     scraper = AuctionScraper()
     items = scraper.fetch_latest_items()
-    print(f"Получено позиций: {len(items)}")
+    print(f"Items fetched: {len(items)}")
     for item in items:
-        # Проверяем, есть ли уже такая позиция по external_id
+        # Check if this item already exists by external_id
         exists = session.query(AuctionItem).filter_by(external_id=item['external_id']).first()
         if not exists:
-            print(f"Добавляю: {item['title']}")
+            print(f"Adding: {item['title']}")
             avg_price = get_average_price(item['title'])
             auction_item = AuctionItem(
                 external_id=item['external_id'],
@@ -27,10 +27,10 @@ def main():
             )
             session.add(auction_item)
     session.commit()
-    print("Коммит выполнен.")
-    # Проверка: вывести все записи
+    print("Commit completed.")
+    # Check: print all records
     all_items = session.query(AuctionItem).all()
-    print(f"Всего записей в БД: {len(all_items)}")
+    print(f"Total records in DB: {len(all_items)}")
     for i in all_items:
         print(i)
     session.close()
