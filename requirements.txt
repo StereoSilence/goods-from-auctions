@@ -1,0 +1,8 @@
+# Скреппинг аукционного сайта justiz-auktion.de
+# Основные зависимости
+requests
+beautifulsoup4
+sqlalchemy
+psycopg2-binary
+python-dotenv
+apscheduler
