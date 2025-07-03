@@ -41,7 +41,6 @@ class AuctionScraper:
     def get_prices(self, url, headers):
         try:
             html = get_html_selenium(url)
-            print(html[:2000])  # Покажет первые 2000 символов страницы
             soup = BeautifulSoup(html, 'html.parser')
             # Стартовая цена
             start_price = None
@@ -68,7 +67,6 @@ from selenium.webdriver.chrome.service import Service
 
 def get_html_selenium(url):
     options = webdriver.ChromeOptions()
-    # options.add_argument("--headless")  # закомментируйте эту строку!
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     service = Service("C:/Users/Alex/Desktop/justiz-auktion/chrome-win64/chromedriver.exe")
